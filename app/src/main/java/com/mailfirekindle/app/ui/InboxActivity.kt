@@ -99,28 +99,22 @@ class InboxActivity : AppCompatActivity() {
             override fun onError(error: String) {
                 runOnUiThread {
                     showLoading(false)
-                    if (error.contains("401") || error.contains("expired", ignoreCase = true)) {
-                        showError(getString(R.string.error_token_expired))
-                        // Redirect to sign in after delay
-                        binding.root.postDelayed({
-                            navigateToSignIn()
-                        }, 2000)
-                    } else {
-                        showError(getString(R.string.error_loading_inbox))
-                    }
+                    // Show detailed error for debugging
+                    showError("Token error: $error")
                 }
             }
             
             override fun onCancel() {
                 runOnUiThread {
                     showLoading(false)
+                    showError("Authentication cancelled")
                 }
             }
             
             override fun onUnauthorizedAccount(message: String) {
                 runOnUiThread {
                     showLoading(false)
-                    showError(getString(R.string.error_unauthorized))
+                    showError("Unauthorized: $message")
                     navigateToSignIn()
                 }
             }
@@ -140,15 +134,8 @@ class InboxActivity : AppCompatActivity() {
                 }
                 is ApiResult.Error -> {
                     showLoading(false)
-                    when (result.code) {
-                        401 -> {
-                            showError(getString(R.string.error_token_expired))
-                            binding.root.postDelayed({
-                                navigateToSignIn()
-                            }, 2000)
-                        }
-                        else -> showError(result.message)
-                    }
+                    // Show detailed error for debugging
+                    showError("API Error (${result.code}): ${result.message}")
                 }
             }
         }
