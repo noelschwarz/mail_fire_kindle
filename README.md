@@ -12,8 +12,8 @@ A minimal Android email client for **Amazon Fire Kindle** devices that connects 
 
 | Version | Download |
 |---------|----------|
-| **Debug APK** (Recommended) | [⬇️ Download Debug APK](https://github.com/noelschwarz/mail_fire_kindle/releases/download/v1.0.3/app-debug.apk) |
-| **Release APK** | [⬇️ Download Release APK](https://github.com/noelschwarz/mail_fire_kindle/releases/download/v1.0.3/app-release-unsigned.apk) |
+| **Debug APK** (Recommended) | [⬇️ Download Debug APK](https://github.com/noelschwarz/mail_fire_kindle/releases/download/v1.0.4/app-debug.apk) |
+| **Release APK** | [⬇️ Download Release APK](https://github.com/noelschwarz/mail_fire_kindle/releases/download/v1.0.4/app-release-unsigned.apk) |
 
 ### Latest Release
 **[📦 View All Releases](https://github.com/noelschwarz/mail_fire_kindle/releases/latest)**
