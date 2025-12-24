@@ -40,31 +40,10 @@ jobs:
     - name: Build Release APK
       run: ./gradlew assembleRelease
 
-    - name: Sign Release APK
-      if: github.event_name != 'pull_request'
-      uses: r0adkll/sign-android-release@v1
-      id: sign_app
-      with:
-        releaseDirectory: app/build/outputs/apk/release
-        signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-        alias: ${{ secrets.KEY_ALIAS }}
-        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-        keyPassword: ${{ secrets.KEY_PASSWORD }}
-      env:
-        BUILD_TOOLS_VERSION: "34.0.0"
-
-    - name: Upload Signed Release APK
-      if: github.event_name != 'pull_request' && steps.sign_app.outcome == 'success'
+    - name: Upload Release APK
       uses: actions/upload-artifact@v4
       with:
-        name: app-release-signed
-        path: ${{ steps.sign_app.outputs.signedReleaseFile }}
-        retention-days: 90
-
-    - name: Upload Unsigned Release APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: app-release-unsigned
+        name: app-release
         path: app/build/outputs/apk/release/app-release-unsigned.apk
         retention-days: 30
 
@@ -72,21 +51,26 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
     
     steps:
-    - name: Download Signed APK
+    - name: Download Release APK
       uses: actions/download-artifact@v4
       with:
-        name: app-release-signed
+        name: app-release
         path: ./release
-      continue-on-error: true
 
-    - name: Download Unsigned APK (fallback)
-      if: failure()
+    - name: Download Debug APK
       uses: actions/download-artifact@v4
       with:
-        name: app-release-unsigned
+        name: app-debug
         path: ./release
+
+    - name: Rename APKs
+      run: |
+        mv ./release/app-release-unsigned.apk ./release/mail-fire-kindle-release.apk || true
+        mv ./release/app-debug.apk ./release/mail-fire-kindle-debug.apk || true
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
@@ -97,4 +81,3 @@ jobs:
         prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
