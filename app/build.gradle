@@ -64,17 +64,8 @@ dependencies {
     implementation 'androidx.activity:activity-ktx:1.8.2'
     
     // MSAL (Microsoft Authentication Library) for Android
-    // Exclude OpenTelemetry which doesn't work on older Fire Kindle devices
-    implementation('com.microsoft.identity.client:msal:4.10.0') {
-        exclude group: 'io.opentelemetry', module: 'opentelemetry-api'
-        exclude group: 'io.opentelemetry', module: 'opentelemetry-context'
-        exclude group: 'io.opentelemetry', module: 'opentelemetry-sdk'
-    }
-    implementation('com.microsoft.identity:common:16.2.0') {
-        exclude group: 'io.opentelemetry', module: 'opentelemetry-api'
-        exclude group: 'io.opentelemetry', module: 'opentelemetry-context'
-        exclude group: 'io.opentelemetry', module: 'opentelemetry-sdk'
-    }
+    // Using older version 2.2.3 for Fire Kindle compatibility (no OpenTelemetry)
+    implementation 'com.microsoft.identity.client:msal:2.2.3'
     
     // OkHttp for Graph API calls
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
