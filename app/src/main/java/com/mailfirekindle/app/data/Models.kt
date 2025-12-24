@@ -57,11 +57,23 @@ data class MessageBody(
 )
 
 /**
- * Response wrapper for message list.
+ * Response wrapper for message list from Graph API.
  */
 data class MessagesResponse(
     @SerializedName("value")
-    val value: List<Message>
+    val value: List<Message>,
+    
+    @SerializedName("@odata.nextLink")
+    val nextLink: String? = null
+)
+
+/**
+ * Paginated messages result with metadata.
+ */
+data class PaginatedMessages(
+    val messages: List<Message>,
+    val nextPageUrl: String?,
+    val hasMore: Boolean
 )
 
 /**

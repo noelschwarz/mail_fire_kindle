@@ -29,8 +29,13 @@ object AppConfig {
     )
     
     /**
-     * Number of messages to load in inbox
+     * Number of messages to load per page
      */
-    const val INBOX_PAGE_SIZE = 25
+    const val INBOX_PAGE_SIZE = 50
+    
+    /**
+     * Maximum total messages to cache
+     */
+    const val MAX_CACHED_MESSAGES = 1000
 }
 

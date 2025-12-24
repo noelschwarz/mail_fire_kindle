@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/inbox_title"
         app:titleTextColor="@color/text_on_primary"
+        app:subtitleTextColor="@color/text_on_primary"
         app:menu="@menu/menu_inbox" />
 
     <!-- Loading indicator -->
@@ -98,12 +99,44 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:paddingBottom="80dp"
+        android:paddingBottom="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         tools:listitem="@layout/item_message" />
+
+    <!-- Load More section -->
+    <LinearLayout
+        android:id="@+id/loadMoreLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp"
+        android:background="@color/surface"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toTopOf="@id/fabCompose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="8dp">
+
+        <ProgressBar
+            android:id="@+id/progressLoadMore"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLoadMore"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/load_more"
+            android:visibility="gone" />
+
+    </LinearLayout>
 
     <!-- FAB for compose -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -117,4 +150,3 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

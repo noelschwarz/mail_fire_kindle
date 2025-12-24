@@ -16,6 +16,8 @@
     <string name="loading_inbox">Loading inbox…</string>
     <string name="no_messages">No messages in your inbox</string>
     <string name="from_label">From:</string>
+    <string name="load_more">Load More Emails</string>
+    <string name="loading_more">Loading more…</string>
     
     <!-- Compose Screen -->
     <string name="compose_title">New Message</string>

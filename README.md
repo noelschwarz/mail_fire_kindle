@@ -12,8 +12,8 @@ A minimal Android email client for **Amazon Fire Kindle** devices that connects 
 
 | Version | Download |
 |---------|----------|
-| **Debug APK** (Recommended) | [⬇️ Download Debug APK](https://github.com/noelschwarz/mail_fire_kindle/releases/download/v1.0.5/app-debug.apk) |
-| **Release APK** | [⬇️ Download Release APK](https://github.com/noelschwarz/mail_fire_kindle/releases/download/v1.0.5/app-release-unsigned.apk) |
+| **Debug APK v1.1.0** (Recommended) | [⬇️ Download Debug APK](https://github.com/noelschwarz/mail_fire_kindle/releases/download/v1.1.0/app-debug.apk) |
+| **Release APK v1.1.0** | [⬇️ Download Release APK](https://github.com/noelschwarz/mail_fire_kindle/releases/download/v1.1.0/app-release-unsigned.apk) |
 
 ### Latest Release
 **[📦 View All Releases](https://github.com/noelschwarz/mail_fire_kindle/releases/latest)**
@@ -28,11 +28,12 @@ A minimal Android email client for **Amazon Fire Kindle** devices that connects 
 ## ✨ Features
 
 - 🔐 **Secure OAuth Login** - Uses Microsoft's official MSAL library
-- 📬 **Inbox View** - See your latest 25 emails
+- 📬 **Inbox View** - Browse up to 1000 emails with pagination
 - 📖 **Read Emails** - View full message content
 - ✉️ **Compose & Send** - Create and send new emails
 - 🔒 **Single Account Lock** - Restricted to one specific email account
 - 📱 **Fire Kindle Compatible** - Works on Fire OS 5+ (Android 5.1+)
+- 📜 **Load More** - Progressively load older emails (50 at a time)
 
 ## 📱 Screenshots
 

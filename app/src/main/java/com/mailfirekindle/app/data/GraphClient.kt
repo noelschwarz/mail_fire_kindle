@@ -31,18 +31,24 @@ class GraphClient {
     }
     
     /**
-     * Fetch inbox messages.
+     * Fetch inbox messages with pagination support.
      * 
      * @param accessToken The OAuth access token
-     * @return ApiResult containing list of messages or error
+     * @param nextPageUrl Optional URL for fetching next page (from @odata.nextLink)
+     * @return ApiResult containing paginated messages response
      */
-    suspend fun getInboxMessages(accessToken: String): ApiResult<List<Message>> {
+    suspend fun getInboxMessages(
+        accessToken: String, 
+        nextPageUrl: String? = null
+    ): ApiResult<PaginatedMessages> {
         return withContext(Dispatchers.IO) {
             try {
-                val url = "${AppConfig.GRAPH_BASE_URL}/me/mailFolders/inbox/messages" +
-                        "?\$top=${AppConfig.INBOX_PAGE_SIZE}" +
-                        "&\$select=id,subject,from,receivedDateTime,bodyPreview" +
-                        "&\$orderby=receivedDateTime desc"
+                val url = nextPageUrl ?: (
+                    "${AppConfig.GRAPH_BASE_URL}/me/mailFolders/inbox/messages" +
+                    "?\$top=${AppConfig.INBOX_PAGE_SIZE}" +
+                    "&\$select=id,subject,from,receivedDateTime,bodyPreview" +
+                    "&\$orderby=receivedDateTime desc"
+                )
                 
                 val request = Request.Builder()
                     .url(url)
@@ -51,7 +57,7 @@ class GraphClient {
                     .get()
                     .build()
                 
-                Log.d(TAG, "Fetching inbox messages")
+                Log.d(TAG, "Fetching inbox messages from: $url")
                 
                 val response = httpClient.newCall(request).execute()
                 val responseBody = response.body?.string()
@@ -59,8 +65,14 @@ class GraphClient {
                 when {
                     response.isSuccessful && responseBody != null -> {
                         val messagesResponse = gson.fromJson(responseBody, MessagesResponse::class.java)
-                        Log.d(TAG, "Fetched ${messagesResponse.value.size} messages")
-                        ApiResult.Success(messagesResponse.value)
+                        Log.d(TAG, "Fetched ${messagesResponse.value.size} messages, nextLink: ${messagesResponse.nextLink}")
+                        ApiResult.Success(
+                            PaginatedMessages(
+                                messages = messagesResponse.value,
+                                nextPageUrl = messagesResponse.nextLink,
+                                hasMore = messagesResponse.nextLink != null
+                            )
+                        )
                     }
                     response.code == 401 -> {
                         Log.w(TAG, "Unauthorized - token may be expired")
@@ -203,4 +215,3 @@ class GraphClient {
         }
     }
 }
-
