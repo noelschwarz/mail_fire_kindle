@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MailFireKindle" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/text_on_primary</item>
+        
+        <!-- Secondary colors -->
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent</item>
+        <item name="colorOnSecondary">@color/text_on_primary</item>
+        
+        <!-- Background -->
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        
+        <!-- Error -->
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">@color/text_on_primary</item>
+        
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/primary_dark</item>
+    </style>
+    
+    <style name="Theme.MailFireKindle.ActionBar" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+</resources>
+

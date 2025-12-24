@@ -1,0 +1,13 @@
+{
+  "client_id": "f6f94c2e-2d79-4e79-aa8b-b7dbb6b242bf",
+  "authorization_user_agent": "BROWSER",
+  "redirect_uri": "msauth://com.mailfirekindle.app/6z0a6730ge7qjEK2tTx2y23TlfU%3D",
+  "account_mode": "SINGLE",
+  "broker_redirect_uri_registered": false,
+  "authorities": [
+    {
+      "type": "AAD",
+      "authority_url": "https://login.microsoftonline.com/consumers"
+    }
+  ]
+}

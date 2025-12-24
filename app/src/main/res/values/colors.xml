@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors - Microsoft Blue Theme -->
+    <color name="primary">#0078D4</color>
+    <color name="primary_dark">#005A9E</color>
+    <color name="primary_light">#50A3E0</color>
+    <color name="accent">#FF8C00</color>
+    
+    <!-- Background Colors -->
+    <color name="background">#FFFFFF</color>
+    <color name="background_secondary">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_hint">#999999</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    
+    <!-- State Colors -->
+    <color name="error">#D32F2F</color>
+    <color name="success">#388E3C</color>
+    <color name="warning">#FFA000</color>
+    
+    <!-- Divider -->
+    <color name="divider">#E0E0E0</color>
+    
+    <!-- List Item -->
+    <color name="list_item_background">#FFFFFF</color>
+    <color name="list_item_pressed">#E8E8E8</color>
+</resources>
+

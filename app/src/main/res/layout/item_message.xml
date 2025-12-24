@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="16dp">
+
+    <!-- Sender initial circle -->
+    <TextView
+        android:id="@+id/tvInitial"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_circle"
+        android:gravity="center"
+        android:textColor="@color/text_on_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="J" />
+
+    <!-- From name -->
+    <TextView
+        android:id="@+id/tvFrom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tvDate"
+        app:layout_constraintStart_toEndOf="@id/tvInitial"
+        app:layout_constraintTop_toTopOf="@id/tvInitial"
+        tools:text="John Doe" />
+
+    <!-- Date/Time -->
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_hint"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvFrom"
+        tools:text="Dec 24, 10:30" />
+
+    <!-- Subject -->
+    <TextView
+        android:id="@+id/tvSubject"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvInitial"
+        app:layout_constraintTop_toBottomOf="@id/tvFrom"
+        tools:text="Meeting Reminder: Team sync tomorrow" />
+
+    <!-- Preview -->
+    <TextView
+        android:id="@+id/tvPreview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvInitial"
+        app:layout_constraintTop_toBottomOf="@id/tvSubject"
+        tools:text="Hi there, just a reminder about our team meeting scheduled for tomorrow at 2pm. Please make sure to..." />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPreview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

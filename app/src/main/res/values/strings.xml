@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mail Fire Kindle</string>
+    
+    <!-- Sign In Screen -->
+    <string name="sign_in_title">Mail Fire Kindle</string>
+    <string name="sign_in_subtitle">Sign in with your Microsoft account</string>
+    <string name="sign_in_button">Sign In with Microsoft</string>
+    <string name="sign_out_button">Sign Out</string>
+    <string name="signing_in">Signing in…</string>
+    
+    <!-- Inbox Screen -->
+    <string name="inbox_title">Inbox</string>
+    <string name="refresh">Refresh</string>
+    <string name="compose">Compose</string>
+    <string name="loading_inbox">Loading inbox…</string>
+    <string name="no_messages">No messages in your inbox</string>
+    <string name="from_label">From:</string>
+    
+    <!-- Compose Screen -->
+    <string name="compose_title">New Message</string>
+    <string name="to_hint">To (email address)</string>
+    <string name="subject_hint">Subject</string>
+    <string name="body_hint">Message body</string>
+    <string name="send_button">Send</string>
+    <string name="sending">Sending…</string>
+    <string name="message_sent">Message sent successfully</string>
+    <string name="send_failed">Failed to send message</string>
+    
+    <!-- Message Detail Screen -->
+    <string name="message_detail_title">Message</string>
+    <string name="loading_message">Loading message…</string>
+    
+    <!-- Error Messages -->
+    <string name="error_unauthorized">Unauthorized: Please sign in again</string>
+    <string name="error_no_network">No network connection</string>
+    <string name="error_token_expired">Session expired. Please sign in again</string>
+    <string name="error_wrong_account">Only josef.schwarz@hotmail.de is allowed to sign in</string>
+    <string name="error_generic">An error occurred. Please try again</string>
+    <string name="error_loading_inbox">Failed to load inbox</string>
+    <string name="error_loading_message">Failed to load message</string>
+    
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+</resources>
+
