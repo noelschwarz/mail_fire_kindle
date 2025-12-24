@@ -20,16 +20,12 @@ object AppConfig {
     
     /**
      * OAuth scopes required for the app.
-     * - User.Read: Read user profile
-     * - Mail.Read: Read user's email
-     * - Mail.Send: Send email on behalf of user
-     * - offline_access: Get refresh tokens for persistent access
+     * Using full Microsoft Graph scope URLs for MSAL 2.x compatibility.
      */
     val SCOPES = arrayOf(
-        "User.Read",
-        "Mail.Read", 
-        "Mail.Send",
-        "offline_access"
+        "https://graph.microsoft.com/User.Read",
+        "https://graph.microsoft.com/Mail.Read", 
+        "https://graph.microsoft.com/Mail.Send"
     )
     
     /**
